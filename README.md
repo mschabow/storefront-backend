@@ -9,18 +9,16 @@ To setup the project, follow these steps:
 - .env file
   This would not normally be included and excluded from , and I have created a .env.template to show the values. However for ease of instructor testing, I have included the .env file contents here:
 
-DB_HOST=127.0.0.1
-DB_DEV=store
-DB_TEST=store_test
-DB_USER=storefront_user
-DB_PASSWORD=password123
-BCRYPT_PASSWORD=secret-password
-SALT_ROUNDS=10
-TOKEN_SECRET=shhhhSecret
-TEST_PASSWORD=correctPassword
-VALID_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InBhc3N3b3JkX2RpZ2VzdCI6IiQyYiQxMCRMSEJBN05NRzRvZzNKOXU5bG1PZXouc3RNRnFTWGRjSGFZczg4d1p3d2kzYXdQTGRhTnlpMiJ9LCJpYXQiOjE2NDIwMjY2NDJ9.btsm4TbGdJyi37oFzg\_\_43x9WfvvMH1wk2Yku1N6bUs
-NODE_ENV=dev
-
+  DB_HOST=127.0.0.1
+  DB_DEV=store
+  DB_TEST=store_test
+  DB_USER=storefront_user
+  DB_PASSWORD=password123
+  BCRYPT_PASSWORD=secret-password
+  SALT_ROUNDS=10
+  TOKEN_SECRET=shhhhSecret
+  TEST_PASSWORD=correctPassword
+  NODE_ENV=dev
 # Running the Storefront Backend
 
 - run: `yarn start` or `yarn watch`. `yarn start` runs the node server, while `yarn watch` runs the server watching and rebuilding on code changes.

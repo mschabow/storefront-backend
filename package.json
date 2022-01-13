@@ -6,7 +6,7 @@
   "scripts": {
     "start": "export NODE_ENV=dev && node dist/server.js",
     "watch": "export NODE_ENV=dev && tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "export NODE_ENV=test && npm run build && db-migrate down --env test && db-migrate up --env test && jasmine-ts && db-migrate down --env test",
+    "test": "export NODE_ENV=test && db-migrate db:create store_test && npm run build && db-migrate down --env test && db-migrate up --env test && jasmine-ts && db-migrate db:drop store_test",
     "build": "npx tsc",
     "db-up": "export NODE_ENV=dev && db-migrate --env dev up",
     "setup": "export NODE_ENV=dev && yarn start-postgres && npm install && yarn build && yarn db-up",
