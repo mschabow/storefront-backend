@@ -1,3 +1,34 @@
+# Storefront Backend
+
+# Setup Instructions
+To setup the project, follow these steps:
+- run: `yarn setup` - This starts the postgres docker container (which contains two databases - store and store_test), installs the node-module dependencies, builds the package, and executes the database migration.
+
+- .env file
+This would not normally be included and excluded from , and I have created a .env.template to show the values. However for the purposes of this assignment, a .env file must be created in the src folder with the following values:
+DB_HOST=127.0.0.1
+DB_DEV=store
+DB_TEST=store_test
+DB_USER=storefront_user
+DB_PASSWORD=password123
+BCRYPT_PASSWORD=secret-password
+SALT_ROUNDS=10
+TOKEN_SECRET=shhhhSecret
+TEST_PASSWORD=correctPassword
+VALID_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InBhc3N3b3JkX2RpZ2VzdCI6IiQyYiQxMCRMSEJBN05NRzRvZzNKOXU5bG1PZXouc3RNRnFTWGRjSGFZczg4d1p3d2kzYXdQTGRhTnlpMiJ9LCJpYXQiOjE2NDIwMjY2NDJ9.btsm4TbGdJyi37oFzg__43x9WfvvMH1wk2Yku1N6bUs
+NODE_ENV=dev
+
+# Running the Storefront Backend
+- run: `yarn start` or `yarn watch`. `yarn start` runs the node server, while `yarn watch` runs the server watching and rebuilding on code changes.
+
+# Testing
+- run: `yarn test` to run tests against a freshly migrated test database. (This database is unique from the dev database.)
+# Ports
+- Storefront server is running on port `3000`
+- Postgres Database is running on port `5432`
+
+
+# Project instructions from Udacity
 # Storefront Backend Project
 
 ## Getting Started
