@@ -11,16 +11,36 @@ const store = new UserStore();
 
 export const userRoutes = express.Router();
 userRoutes.post("/login", async (req, res) => {
-  await authenticate(req, res);
+  try {
+    await authenticate(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 userRoutes.post("/register", async (req, res) => {
-  await create(req, res);
+  try {
+    await create(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 userRoutes.get("/", jwtVerify, async (req, res) => {
-  await index(req, res);
+  try {
+    await index(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 userRoutes.get("/:id", jwtVerify, async (req, res) => {
-  await show(req, res);
+  try {
+    await show(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 
 export const create = async (req: Request, res: Response) => {

@@ -9,14 +9,29 @@ const store = new ProductStore();
 
 export const productRoutes = express.Router();
 productRoutes.get("/", async (req: Request, res: Response) => {
-  await index(req, res);
+  try {
+    await index(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 productRoutes.get("/:id", async (req: Request, res: Response) => {
-  await show(req, res);
+  try {
+    await show(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 
 productRoutes.post("/", jwtVerify, async (req: Request, res: Response) => {
-  await create(req, res);
+  try {
+    await create(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 
 async function index(req: Request, res: Response) {

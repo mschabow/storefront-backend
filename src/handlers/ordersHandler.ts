@@ -10,11 +10,21 @@ const store = new OrderStore();
 export const orderRoutes = express.Router();
 
 orderRoutes.get("/", jwtVerify, async (req: Request, res: Response) => {
-  await index(req, res);
+  try {
+    await index(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 
 orderRoutes.get("/user/:id", jwtVerify, async (req: Request, res: Response) => {
-  await showOrderByUser(req, res);
+  try {
+    await showOrderByUser(req, res);
+  } catch (error) {
+    res.status(400);
+    res.json({ error });
+  }
 });
 
 async function index(req: Request, res: Response) {
@@ -33,7 +43,6 @@ async function showOrderByUser(req: Request, res: Response) {
     const orders = await store.showOrderByUser(id);
     res.json(orders);
   } catch (error) {
-    console.log(error);
     res.status(400);
     res.json(`${error}`);
   }
